@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import Navbar from "@/components/navbar";
 import { Link } from "@nextui-org/link";
@@ -37,8 +36,7 @@ export default function RootLayout({
 			<head/>
 			<body
 				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
-					fontSans.variable
+					"min-h-screen bg-background antialiased"
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
