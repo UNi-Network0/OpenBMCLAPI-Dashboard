@@ -48,7 +48,7 @@ export default function Navbar() {
               >
                 {item.label}
                 {item.icon ? (
-                  <RiArrowRightUpLine widths={12} height={12} />
+                  <RiArrowRightUpLine widths={12}/>
                 ) : (
                   ""
                 )}
