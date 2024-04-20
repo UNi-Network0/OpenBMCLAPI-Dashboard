@@ -16,4 +16,4 @@ jobs:
         run: |
           git config --local user.email "marcus@marcus233.top"
           git config --local user.name "MarcusYYDS"
-          git push --force --quiet "https://MarcusYYDS:${{ secrets.TOKEN }}@github.com/MarcusYYDS/OpenBMCLAPI-Dashboard.git" main:main
+          git push --force --quiet "https://MarcusYYDS:${{ secrets.GITHUBTOKEN }}@github.com/MarcusYYDS/OpenBMCLAPI-Dashboard.git" main:main
