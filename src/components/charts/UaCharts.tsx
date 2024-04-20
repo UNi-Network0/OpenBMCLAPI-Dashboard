@@ -8,12 +8,15 @@ import { UaProps } from "../../types/charts"
 export default function UaCharts(accesses: UaProps) {
   let newdata: { name: string; hits: number }[] = [];
   Object.entries(accesses).forEach(([name, hits]) => {
+    if (name === "openbmclapi-cluster") name="Cluster";
+    if (name === "bmclapi-warden") name="Warden";
+    if (name == "[Unknown]") return;
     newdata.push({ name, hits });
   });
-  newdata = newdata.sort((a, b) => b.hits - a.hits).slice(0, 7).reverse();
+  newdata = newdata.sort((a, b) => b.hits - a.hits).slice(0, 5).reverse();
   console.log(newdata);
   const options = {
-    grid: { top: 8, right: 30, bottom: 24, left: 140},
+    grid: { top: 8, right: 30, bottom: 24, left: 60},
     xAxis: {
       data: newdata.map((item) => item.hits),
       type: "value",

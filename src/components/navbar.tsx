@@ -18,13 +18,16 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon, OutIcon } from "@/components/icons";
+import {
+  RiGithubFill,
+  RiArrowRightUpLine,
+  RiLoginCircleLine,
+} from "@remixicon/react";
 
 import { Logo } from "@/components/icons";
 
 export default function Navbar() {
   return (
-
     <NextUINavbar maxWidth="xl" position="sticky" isBordered>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -45,7 +48,11 @@ export default function Navbar() {
                 href={item.href}
               >
                 {item.label}
-                {item.icon?<OutIcon />:""}
+                {item.icon ? (
+                  <RiArrowRightUpLine widths={12} height={12} />
+                ) : (
+                  ""
+                )}
               </NextLink>
             </NavbarItem>
           ))}
@@ -58,24 +65,29 @@ export default function Navbar() {
       >
         <NavbarItem className="hidden md:flex gap-2">
           <ThemeSwitch />
-          <Button
+          <Link
             isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
+            className="text-sm font-normal text-default-600"
             href={siteConfig.links.github}
-            startContent={<GithubIcon />}
-            variant="flat"
           >
-            Github
-          </Button>
+            <RiGithubFill />
+          </Link>
+          <Button
+            className="text-sm font-normal text-default-600 bg-default-100"
+            href="/login"
+            startContent={<RiLoginCircleLine />}
+            variant="flat">Login</Button>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig.links.github} aria-label="Github">
-          <GithubIcon className="text-default-500" />
-        </Link>
         <ThemeSwitch />
+        <Link isExternal href={siteConfig.links.github} aria-label="Github">
+          <RiGithubFill className="text-default-500" />
+        </Link>
+        <Link href="/login" aria-label="Login">
+          <RiLoginCircleLine className="text-default-500" />
+        </Link>
         <NavbarMenuToggle />
       </NavbarContent>
 
