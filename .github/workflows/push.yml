@@ -1,0 +1,25 @@
+name: Push to MarcusYYDS/open-bmclapi-dashboard
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Add changes"
+
+      - name: Push to MarcusYYDS/open-bmclapi-dashboard
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          repository: marcusyyds/open-bmclapi-dashboard
