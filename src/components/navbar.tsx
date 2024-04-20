@@ -22,9 +22,8 @@ import {
   RiGithubFill,
   RiArrowRightUpLine,
   RiLoginCircleLine,
+  RiHome2Fill
 } from "@remixicon/react";
-
-import { Logo } from "@/components/icons";
 
 export default function Navbar() {
   return (
@@ -32,7 +31,7 @@ export default function Navbar() {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
+            <RiHome2Fill />
             <p className="font-bold text-inherit">OpenBmclapiDashboard</p>
           </NextLink>
         </NavbarBrand>
